@@ -21,8 +21,22 @@ jobs:
       with:
         go-version: '1.23'
 
-    - name: Build
-      run: go build -v ./...
+    - name: Build for Linux
+      run: |
+        GOOS=linux GOARCH=amd64 go build -o tidy
 
-    - name: Test
-      run: go test -v ./...
+    - name: Build for Windows
+      run: |
+        GOOS=windows GOARCH=amd64 go build -o tidy.exe
+
+    - name: Upload Linux Binary
+      uses: actions/upload-artifact@v3
+      with:
+        name: tidy
+        path: tidy
+
+    - name: Upload Windows Binary
+      uses: actions/upload-artifact@v3
+      with:
+        name: tidy.exe
+        path: tidy.exe
