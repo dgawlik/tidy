@@ -16,6 +16,10 @@ go build
 
 Then add binary to the path.
 
+Or download here:
+
+https://github.com/dgawlik/tidy/actions/runs/10820426310
+
 ## Usage
 
 ```bash
